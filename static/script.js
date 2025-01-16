@@ -1,5 +1,5 @@
 let templist=[]
-
+//function to initialize all contacts upon application start
 function initContacts(){
     console.log(4)
     let xhr=new XMLHttpRequest()
@@ -12,6 +12,7 @@ function initContacts(){
     xhr.open('GET','http://localhost:3000/getcontactslist')
     xhr.send()
 }
+//function to display the contacts retrieved by initContacts functions
 function displayContacts(contactList){
     document.getElementById('contactsList').innerText=''
     try {
@@ -20,6 +21,7 @@ function displayContacts(contactList){
     catch (e){}
     templist=contactList
     let temp=Object.keys(contactList)
+    //loop through each data object and create elements neccessary
     if(temp.length > 0){
         for (let i=0;i<temp.length;i++){
             console.log(i)
@@ -53,10 +55,11 @@ function displayContacts(contactList){
             th6.id=temp[i]+'-lastedit'
 
             editbtn.className=deletbtn.className='btncls'
-
+            //this will perform action for Updating a contact
             editbtn.onclick = (e)=>{
                 let spid=e.target.id.split('-')[0]
                 if(document.getElementById(e.target.id).innerText==='Update'){
+                    //if a user clicks update, change the elements to reflect the actions
                     document.getElementById(e.target.id).innerText='Cancel'
                     let nameinput=document.createElement('input')
                     let emailinput=document.createElement('input')
@@ -70,6 +73,7 @@ function displayContacts(contactList){
                     document.getElementById(spid+'-email').append(emailinput)
                 }
                 else{
+                    //if a user doesn't wanna update, change everything back to normal
                     document.getElementById(e.target.id).innerText='Update'
                     let name =document.createElement('label')
                     let email =document.createElement('label')
@@ -82,7 +86,10 @@ function displayContacts(contactList){
                     document.getElementById(spid+'-deletebtn').innerText='Delete'
                 }
             }
+            //this will perform actions to delete a contact
             deletbtn.onclick = (e)=> {
+                //This button will be used with update button to confirm the update
+                //if the user hasn't clicked on update and clicked delete button this will execute
                 if (document.getElementById(e.target.id).innerText === 'Delete') {
                     let xhr = new XMLHttpRequest()
                     xhr.onreadystatechange = function () {
@@ -100,6 +107,7 @@ function displayContacts(contactList){
                     xhr.setRequestHeader('Content-Type','application/json;charset=UTF-8')
                     xhr.send(JSON.stringify({'id': e.target.id.split('-')[0]}))
                 }
+                //if the user has clicked on update and the delete button's actions are chaned to confirm the update this will execute
                 else{
                     let spid=e.target.id.split('-')[0]
                     let newname=document.getElementById(spid+'-name').firstChild.value
@@ -110,6 +118,7 @@ function displayContacts(contactList){
                         if (xhr.readyState === 4 && xhr.status === 200) {
                             let response = JSON.parse(xhr.response)['response']
                             if(response===200){
+                                //if a update was succesfull, roll back the initial changes made
                                 templist[spid]['name']=newname
                                 templist[spid]['email']=newemail
                                 document.getElementById(e.target.id).innerText='Update'
@@ -144,12 +153,14 @@ function displayContacts(contactList){
             document.getElementById('contactsList').appendChild(tr)
         }
     }
+    //if there are no contacts to display, just show a Nothing to show here label.
     else
         document.getElementById('contactsList').innerHTML=" <td colspan=\"6\" align=\"center\" >\n" +
             "                            <label style=\"margin: 30px auto;font-size: x-large\">Nothing to show</label>\n" +
             "                        </td>"
 
 }
+//function that executes when the search field has 3 or more characters and clicks on search button
 document.getElementById('searchButton').onclick = ()=>{
     let q = document.getElementById('searchField').value
     if(q.length >=3){
@@ -165,7 +176,7 @@ document.getElementById('searchButton').onclick = ()=>{
         xhr.send(JSON.stringify({'q':q}))
     }
 }
-
+//a function that executes when the name and email field are not empty and user clicks on add button
 document.getElementById('addButton').onclick =()=> {
     let name = document.getElementById('name').value
     let email = document.getElementById('email').value
@@ -188,5 +199,8 @@ document.getElementById('addButton').onclick =()=> {
         //TODO nope
     }
 }
+// a Refresh button in case you want to reload all the data from the database after searching
 document.getElementById('refreshButton').onclick=()=>{initContacts()}
+
+//THIS STARTS OUR APPLICATON
 initContacts()

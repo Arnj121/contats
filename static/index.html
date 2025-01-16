@@ -7,14 +7,18 @@
 </head>
 <body>
     <div style="display: flex;flex-direction: column">
+<!--        Displays the logo-->
         <div id="header">
             <label style="font-size: xx-large">Contacts</label>
         </div>
+<!--        divided into 3 pars, searchBox, Adding contacts, Displaying contacts-->
         <div id="mainframe">
+<!--            Show search box-->
             <div id="searchBox">
                 <input id="searchField" placeholder="Search by name or email"/>
                 <button id="searchButton">Search</button>
             </div>
+<!--            Display fields to add contacts-->
             <div id="displayField" >
                 <div style="display: flex;justify-content: center;flex-direction: column;padding: 10px 90px;
                     border-style: solid;border-width: 0 0 1px 0; border-color: #c0bebe; margin: 10px auto">
@@ -28,6 +32,7 @@
                         <button id="refreshButton">Refresh</button>
                     </div>
                 </div>
+<!--                Display all the contacts added-->
                 <table id="contactList">
                     <thead id="columnHeader">
                     <tr>
