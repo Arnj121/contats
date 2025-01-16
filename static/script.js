@@ -145,7 +145,9 @@ function displayContacts(contactList){
         }
     }
     else
-        document.getElementById('contactsList').innerHTML="<label style=\"margin: 30px auto;font-size: x-large\">Nothing to show</label>\n"
+        document.getElementById('contactsList').innerHTML=" <td colspan=\"6\" align=\"center\" >\n" +
+            "                            <label style=\"margin: 30px auto;font-size: x-large\">Nothing to show</label>\n" +
+            "                        </td>"
 
 }
 document.getElementById('searchButton').onclick = ()=>{
