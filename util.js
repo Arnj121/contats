@@ -1,5 +1,6 @@
 const path=  require('path')
 const fs=require('fs')
+require('dotenv').config()
 
 const getContactsList = (req,res)=>{
     fs.readFile(path.join(__dirname,`/${process.env.DATAFILE}`),'utf8',(err,data)=>{
