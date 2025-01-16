@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts App</title>
+    <link href="http://localhost:3000/public/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div style="display: flex;flex-direction: column">
+        <div id="header">
+            <label style="font-size: xx-large">Contacts</label>
+        </div>
+        <div id="mainframe">
+            <div id="searchBox">
+                <input id="searchField" placeholder="Search by name or email"/>
+                <button id="searchButton">Search</button>
+            </div>
+            <div id="displayField" >
+                <div style="display: flex;justify-content: center;flex-direction: column;padding: 10px 90px;
+                    border-style: solid;border-width: 0 0 1px 0; border-color: #c0bebe; margin: 10px auto">
+                    <div style="display: flex;justify-content: center;margin: 10px 0;font-size: large">
+                        <label style="justify-content: center">Add Contact</label>
+                    </div>
+                    <div style="display: flex;justify-content: center">
+                        <input placeholder="name" id="name">
+                        <input placeholder="email" id="email">
+                        <button id="addButton">Add</button>
+                        <button id="refreshButton">Refresh</button>
+                    </div>
+                </div>
+                <table id="contactList">
+                    <thead id="columnHeader">
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                        <th>Last Edit</th>
+                    </tr>
+                    </thead>
+                    <tbody id="contactsList">
+                    <tr id="nothinglbl">
+                        <td colspan="6" align="center" >
+                            <label style="margin: 30px auto;font-size: x-large">Nothing to show</label>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="footer">
+
+        </div>
+    </div>
+</body>
+</html>
+<script src="http://localhost:3000/public/script.js"></script>

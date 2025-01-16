@@ -1,0 +1,120 @@
+body{
+    font-family: "Calibri Light", sans-serif;
+}
+
+#header{
+    border-color: #c0bebe;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    margin: 0 2px 2px 2px;
+    padding: 0 5px;
+}
+
+#mainframe{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+#searchBox{
+    display: flex;
+    margin: 50px auto 50px auto;
+    flex-direction: row;
+    align-content: center;
+}
+#searchField{
+    height: 50px;
+    width: 300px;
+    padding-inline: 5px 15px;
+    border-radius: 3px;
+    border: solid #c0bebe 1px;
+    color: #4d4b4b;
+    font-size: large;
+}
+#searchField:focus{
+    outline: none;
+    transform: scale(1.02);
+}
+#searchButton{
+    margin: 0 10px;
+    font-size: large;
+    color: #4d4b4b;
+    background-color:  white;
+    border: solid 1px #c0bebe;
+    border-radius: 5px;
+}
+#searchButton:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+#displayField{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#contactList{
+    margin: 5px auto;
+}
+#contactList tr th, #contactsList tr td{
+    padding: 5px 20px;
+}
+#contactList tr th{
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: #c0bebe;
+    color: chocolate;
+}
+#name,#email{
+    padding-inline: 5px 10px;
+    border: 1px solid #c0bebe;
+    height: 30px;
+    width: 200px;
+    margin: 5px 10px;
+    border-radius: 5px;
+}
+#name:focus,#email:focus{
+    outline: none;
+    transform: scale(1.02);
+}
+#addButton,#refreshButton{
+    height: 30px;
+    margin: auto 5px;
+    background-color: white;
+    border: solid 1px #c0bebe;
+    border-radius: 3px;
+    font-size: medium;
+    color: #4d4b4b;
+    padding: 0 10px;
+}
+#addButton:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+#refreshButton:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+.btncls{
+    height: 30px;
+    margin: auto 5px;
+    background-color: white;
+    border: solid 1px #c0bebe;
+    border-radius: 3px;
+    color: #4d4b4b;
+    padding: 0 10px;
+}
+.btncls:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+.entrybox{
+    padding-inline: 5px;
+    border: 1px solid #c0bebe;
+    height: 25px;
+    width: 100px;
+    margin: 5px 10px;
+    border-radius: 5px;
+}
+#footer{
+
+}
